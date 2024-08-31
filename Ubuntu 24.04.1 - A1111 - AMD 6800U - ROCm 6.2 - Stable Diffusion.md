@@ -22,16 +22,8 @@ Instalklation process:
 11. Enter into environment: `python3.11 -m venv venv && source venv/bin/activate`. You should see something like: `(venv) yourLogin@yourHost:~/stable-diffusion-webui$`
 12. Install python packages: `pip3 install -r requirements.txt && pip3 uninstall torch torchvision && pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm6.2/` - that will install requirements, delete CUDA related packages and install ROCm 6.2 (I'm pretty sure should be proper way to do it)
 13. Exit: `deactivate`
-14. Create script to run, eg name it `run.sh`:
-    ```bash
-    #!/bin/sh
-    
-    source venv/bin/activate
-    
-    HSA_OVERRIDE_GFX_VERSION=10.3.0 python3.11 launch.py --listen --enable-insecure-extension-access --opt-sdp-attention --theme dark
-
-    deactivate
-    ```
-    And make it executable: `chmod +x run.sh`
-15. Run it: `./run.sh` - first start could take longer
-    
+14. Update/add `webui-user.sh`... probably we could skip step 12:
+    - `python_cmd="python3.11"`
+    - `export TORCH_COMMAND="pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm6.2/"`
+    - `export HSA_OVERRIDE_GFX_VERSION=10.3.0`
+15. Run it: `./webui.sh` - first start could take longer
