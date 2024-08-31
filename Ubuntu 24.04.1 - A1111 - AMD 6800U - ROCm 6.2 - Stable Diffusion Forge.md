@@ -19,12 +19,12 @@ Installation process:
 7. Add user to groups: ```sudo adduser `whoami` video && sudo adduser `whoami` render```
 8. Probably better to reboot here: `sudo reboot`
 9. (optional) Install monitoring tools: `sudo apt install radeontop`
-10. Get A1111 OR SD Forge: `git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && cd stable-diffusion-webui` or `git clone https://github.com/lllyasviel/stable-diffusion-webui-forge && cd stable-diffusion-webui-forge`
+10. Get A1111 OR SD Forge (for Flux for example): `git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && cd stable-diffusion-webui` or `git clone https://github.com/lllyasviel/stable-diffusion-webui-forge && cd stable-diffusion-webui-forge`
 11. Enter into environment: `python3.11 -m venv venv && source venv/bin/activate`. You should see something like: `(venv) yourLogin@yourHost:~/stable-diffusion-webui$`
 12. Install python packages: `pip3 install -r requirements.txt && pip3 uninstall torch torchvision && pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm6.2/` - that will install requirements, delete CUDA related packages and install ROCm 6.2 (I'm pretty sure should be proper way to do it)
 13. Exit: `deactivate`
-14. Update/add `webui-user.sh`...:
+14. Update/add `webui-user.sh`:
     - `python_cmd="python3.11"`
     - `export TORCH_COMMAND="pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm6.2/"`
-    - `export HSA_OVERRIDE_GFX_VERSION=10.3.0`
-15. Run it: `./webui.sh` - first start could take longer
+    - `export HSA_OVERRIDE_GFX_VERSION=10.3.0` - that is for RDNA2 that is in AMD 6800U
+15. Run it: `./webui.sh` - first start could take longer as well as first render
