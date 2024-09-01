@@ -4,7 +4,7 @@ Based on:
  - Rust: https://www.rust-lang.org/tools/install
 
 Hardware and software:
- - Ubuntu 24.04.1, Linux kernel 6.8.0-41-generic, GPD Win max 2 6800U 16GB (8GB to iGPU set in BIOS)
+ - Ubuntu 24.04.1, Linux kernel 6.8.0-41-generic, GPD Win max 2 6800U 16GB (DON'T SET 8GB to iGPU in BIOS, left is to Auto, you can check with memory available for AI `sudo dmesg|grep GTT`)
  - Python 3.11.9 (is not default version Ubuntu 24.04.1)
  - A1111 SD 82a973c04367123ae98bd9abdf80d9eda9b910e2 tag: v1.10.1
  - SD Forge UI 3b9b2f653ef9579e871e73f34b3c5037395cc351
